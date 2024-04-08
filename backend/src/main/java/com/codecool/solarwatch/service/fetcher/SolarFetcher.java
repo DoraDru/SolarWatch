@@ -1,6 +1,6 @@
 package com.codecool.solarwatch.service.fetcher;
 
-import com.codecool.solarwatch.model.City;
+import com.codecool.solarwatch.model.city.City;
 import com.codecool.solarwatch.model.solar.SolarResult;
 import com.codecool.solarwatch.model.solar.SunriseSunsetInfo;
 import org.springframework.stereotype.Component;

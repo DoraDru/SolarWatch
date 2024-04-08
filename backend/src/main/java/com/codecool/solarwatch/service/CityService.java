@@ -1,6 +1,6 @@
 package com.codecool.solarwatch.service;
 
-import com.codecool.solarwatch.model.City;
+import com.codecool.solarwatch.model.city.City;
 import com.codecool.solarwatch.service.fetcher.CityFetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,8 @@ public class CityService {
 
     public City getCity(String cityName){
         String formattedCityName = formatCityName(cityName);
-        return cityFetcher.getGeoCodingCoordinates(formattedCityName);
+        City city = cityFetcher.getGeoCodingCoordinates(formattedCityName);
+        return city;
     }
 
 

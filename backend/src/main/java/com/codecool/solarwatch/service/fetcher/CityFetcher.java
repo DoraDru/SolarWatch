@@ -1,8 +1,8 @@
 package com.codecool.solarwatch.service.fetcher;
 
 import com.codecool.solarwatch.errorhandling.InvalidCityException;
-import com.codecool.solarwatch.model.City;
 import com.codecool.solarwatch.model.GeoCoordinates;
+import com.codecool.solarwatch.model.city.City;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
