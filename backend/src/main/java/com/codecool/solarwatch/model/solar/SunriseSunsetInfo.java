@@ -1,17 +1,31 @@
 package com.codecool.solarwatch.model.solar;
 
+import com.codecool.solarwatch.model.city.City;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Entity
 public class SunriseSunsetInfo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
     private LocalDate date;
     private LocalTime sunrise;
     private LocalTime sunset;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     public SunriseSunsetInfo(LocalDate date, LocalTime sunrise, LocalTime sunset) {
         this.date = date;
         this.sunrise = sunrise;
         this.sunset = sunset;
+    }
+
+    public SunriseSunsetInfo() {
+
     }
 
     public LocalDate getDate() {
