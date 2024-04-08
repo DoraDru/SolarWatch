@@ -2,12 +2,14 @@ package com.codecool.solarwatch.service;
 
 import com.codecool.solarwatch.model.City;
 import com.codecool.solarwatch.service.fetcher.CityFetcher;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CityService {
     private final CityFetcher cityFetcher;
 
+    @Autowired
     public CityService(CityFetcher cityDetailsFetcher) {
         this.cityFetcher = cityDetailsFetcher;
     }
