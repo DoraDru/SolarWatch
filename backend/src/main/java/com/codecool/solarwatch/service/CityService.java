@@ -1,25 +1,37 @@
 package com.codecool.solarwatch.service;
 
 import com.codecool.solarwatch.model.city.City;
+import com.codecool.solarwatch.repository.CityRepository;
 import com.codecool.solarwatch.service.fetcher.CityFetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CityService {
     private final CityFetcher cityFetcher;
+    private final CityRepository cityRepository;
 
     @Autowired
-    public CityService(CityFetcher cityDetailsFetcher) {
+    public CityService(CityFetcher cityDetailsFetcher, CityRepository cityRepository) {
         this.cityFetcher = cityDetailsFetcher;
+        this.cityRepository = cityRepository;
     }
 
-    public City getCity(String cityName){
+    public City getCity(String cityName) {
         String formattedCityName = formatCityName(cityName);
-        City city = cityFetcher.getGeoCodingCoordinates(formattedCityName);
-        return city;
-    }
 
+        Optional<City> optionalCity = cityRepository.getCityByName(formattedCityName);
+
+        if (optionalCity.isPresent()) {
+            return optionalCity.get();
+        } else {
+            City city = cityFetcher.getGeoCodingCoordinates(cityName);
+            cityRepository.save(city);
+            return city;
+        }
+    }
 
 
     protected String formatCityName(String cityName) {
