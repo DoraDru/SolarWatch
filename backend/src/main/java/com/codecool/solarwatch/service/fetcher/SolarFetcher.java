@@ -44,14 +44,14 @@ public class SolarFetcher {
         return String.format("https://api.sunrise-sunset.org/json?lat=%s&lng=%s&date=%s", latitude, longitude, date);
     }
 
-    private LocalTime convertToLocalTime(String time) {
-        int WRONG_TIME_FORMAT_LENGTH = 10;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+        protected LocalTime convertToLocalTime(String time) {
+            int WRONG_TIME_FORMAT_LENGTH = 10;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
 
-        if (time.length() == WRONG_TIME_FORMAT_LENGTH) {
-            String correctTimeFormat = "0" + time;
-            return LocalTime.parse(correctTimeFormat, formatter);
+            if (time.length() == WRONG_TIME_FORMAT_LENGTH) {
+                String correctTimeFormat = "0" + time;
+                return LocalTime.parse(correctTimeFormat, formatter);
+            }
+            return LocalTime.parse(time, formatter);
         }
-        return LocalTime.parse(time, formatter);
-    }
 }
