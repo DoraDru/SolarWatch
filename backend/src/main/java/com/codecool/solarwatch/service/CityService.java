@@ -36,7 +36,7 @@ public class CityService {
 
     protected String formatCityName(String cityName) {
         if (cityName != null && !cityName.isEmpty()) {
-            String[] words = cityName.split("[._*%-]");
+            String[] words = cityName.split("[^a-zA-Z0-9]");
 
             StringBuilder stringBuilder = new StringBuilder();
             for (String word : words) {
