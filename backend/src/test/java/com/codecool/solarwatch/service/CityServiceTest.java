@@ -55,7 +55,7 @@ class CityServiceTest {
     void testGetCity_InvalidCityName(){
         String cityName = "fsregfsdr";
 
-        Mockito.when(cityFetcher.getGeoCodingCoordinates(cityName)).thenThrow(new InvalidCityException());
+        Mockito.when(cityFetcher.getGeoCodingCoordinates(cityName)).thenThrow(new InvalidCityException(cityName));
 
         assertThrows(InvalidCityException.class, () -> cityService.getCity(cityName));
     }

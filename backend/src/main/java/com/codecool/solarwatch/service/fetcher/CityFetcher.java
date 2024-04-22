@@ -38,7 +38,7 @@ public class CityFetcher {
                     geoCodingCoordinates.country(),
                     geoCodingCoordinates.state());
         } else {
-            throw new InvalidCityException();
+            throw new InvalidCityException(cityName);
         }
     }
 }

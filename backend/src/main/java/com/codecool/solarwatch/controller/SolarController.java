@@ -38,7 +38,7 @@ public class SolarController {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 return LocalDate.parse(dateStr, formatter);
             } catch (DateTimeParseException e) {
-                throw new InvalidDateException();
+                throw new InvalidDateException(dateStr);
             }
         } else {
             return LocalDate.now();
@@ -53,7 +53,7 @@ public class SolarController {
 
     private void validateCityNotEmpty(String city) {
         if (city == null || city.isEmpty()) {
-            throw new InvalidCityException();
+            throw new InvalidCityException(city);
         }
     }
 
@@ -61,13 +61,13 @@ public class SolarController {
         int MAX_LENGTH = 70;
 
         if (city.length() > MAX_LENGTH) {
-            throw new InvalidCityException();
+            throw new InvalidCityException(city);
         }
     }
 
     private void validateCityNotContainsNumbers(String city) {
         if (city.matches(".*“[0-9]”.*")) {
-            throw new InvalidCityException();
+            throw new InvalidCityException(city);
         }
     }
 }
