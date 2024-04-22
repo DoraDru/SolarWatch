@@ -18,10 +18,11 @@ public class SunriseSunsetInfo {
     @JoinColumn(name = "city_id")
     private City city;
 
-    public SunriseSunsetInfo(LocalDate date, LocalTime sunrise, LocalTime sunset) {
+    public SunriseSunsetInfo(LocalDate date, LocalTime sunrise, LocalTime sunset, City city) {
         this.date = date;
         this.sunrise = sunrise;
         this.sunset = sunset;
+        this.city = city;
     }
 
     public SunriseSunsetInfo() {

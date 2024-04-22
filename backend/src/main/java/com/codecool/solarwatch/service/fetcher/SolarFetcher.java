@@ -32,7 +32,8 @@ public class SolarFetcher {
             SunriseSunsetInfo sunriseSunsetInfo = new SunriseSunsetInfo(
                     date,
                     convertToLocalTime(response.results().sunrise()),
-                    convertToLocalTime(response.results().sunset())
+                    convertToLocalTime(response.results().sunset()),
+                    city
             );
             return sunriseSunsetInfo;
         } else {

@@ -34,7 +34,7 @@ class SolarServiceTest {
         LocalDate date = LocalDate.of(2024, 4, 17);
         String cityName = "Budapest";
         City city = new City(cityName, 40.7128, -74.0060, "HU", null);
-        SunriseSunsetInfo solarInfo = new SunriseSunsetInfo(date, LocalTime.parse("06:43:12"), LocalTime.parse("18:43:12"));
+        SunriseSunsetInfo solarInfo = new SunriseSunsetInfo(date, LocalTime.parse("06:43:12"), LocalTime.parse("18:43:12"), city);
 
         Mockito.when(cityService.getCity(cityName)).thenReturn(city);
         Mockito.when(solarRepository.getByCityAndDate(city, date)).thenReturn(Optional.of(solarInfo));
@@ -50,7 +50,7 @@ class SolarServiceTest {
         LocalDate date = LocalDate.of(2024, 4, 17);
         String cityName = "Budapest";
         City city = new City(cityName, 40.7128, -74.0060, "HU", null);
-        SunriseSunsetInfo solarInfo = new SunriseSunsetInfo(date, LocalTime.parse("06:43:12"), LocalTime.parse("18:43:12"));
+        SunriseSunsetInfo solarInfo = new SunriseSunsetInfo(date, LocalTime.parse("06:43:12"), LocalTime.parse("18:43:12"), city);
 
         Mockito.when(cityService.getCity(cityName)).thenReturn(city);
         Mockito.when(solarRepository.getByCityAndDate(city, date)).thenReturn(Optional.empty());
