@@ -1,5 +1,6 @@
 package com.codecool.solarwatch.controller;
 
+import com.codecool.solarwatch.errorhandling.InvalidCityException;
 import com.codecool.solarwatch.errorhandling.InvalidDateException;
 import com.codecool.solarwatch.model.solar.SunriseSunsetInfo;
 import com.codecool.solarwatch.service.SolarService;
@@ -25,11 +26,13 @@ public class SolarController {
 
     @GetMapping("/solarwatch")
     public SunriseSunsetInfo getSunriseSunsetInfo(@RequestParam String city, @RequestParam(required = false) String date) {
+        validateCity(city);
+
         return solarService.getSolarInfo(city, validateDateFormat(date));
     }
 
 
-    private LocalDate validateDateFormat(String dateStr) {
+    protected LocalDate validateDateFormat(String dateStr) {
         if (dateStr != null && !dateStr.isEmpty()) {
             try {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -39,6 +42,32 @@ public class SolarController {
             }
         } else {
             return LocalDate.now();
+        }
+    }
+
+    protected void validateCity(String city) {
+        validateCityNotEmpty(city);
+        validateCityNameLength(city);
+        validateCityNotContainsNumbers(city);
+    }
+
+    private void validateCityNotEmpty(String city) {
+        if (city == null || city.isEmpty()) {
+            throw new InvalidCityException();
+        }
+    }
+
+    private void validateCityNameLength(String city) {
+        int MAX_LENGTH = 70;
+
+        if (city.length() > MAX_LENGTH) {
+            throw new InvalidCityException();
+        }
+    }
+
+    private void validateCityNotContainsNumbers(String city) {
+        if (city.matches(".*“[0-9]”.*")) {
+            throw new InvalidCityException();
         }
     }
 }
