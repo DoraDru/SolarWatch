@@ -1,5 +1,6 @@
 package com.codecool.solarwatch.controller;
 
+import com.codecool.solarwatch.errorhandling.InvalidCityException;
 import com.codecool.solarwatch.errorhandling.InvalidDateException;
 import com.codecool.solarwatch.service.SolarService;
 import org.junit.jupiter.api.Test;
@@ -75,4 +76,29 @@ class SolarControllerTest {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    void testValidateCity_CityIsNull() {
+        assertThrows(InvalidCityException.class, () -> solarController.validateCity(null));
+    }
+
+    @Test
+    void testValidateCity_CityIsEmpty() {
+        String city = "";
+        assertThrows(InvalidCityException.class, () -> solarController.validateCity(city));
+    }
+
+    @Test
+    void testValidateCity_CityContainsNumber() {
+        String city = "Bud4pest";
+        assertThrows(InvalidCityException.class, () -> solarController.validateCity(city));
+    }
+
+    @Test
+    void testValidateCity_CityNameTooLong() {
+        String city = "dhjkjhgfdhjkjhgfdhjkjhgfdhjkjhgfdhjkjhgfdhjkjhgfdhjkjhgfdhjkjhgfdhjkjhgf";
+        assertThrows(InvalidCityException.class, () -> solarController.validateCity(city));
+    }
+
+
 }
