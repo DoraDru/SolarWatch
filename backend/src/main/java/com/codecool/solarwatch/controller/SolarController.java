@@ -66,7 +66,7 @@ public class SolarController {
     }
 
     private void validateCityNotContainsNumbers(String city) {
-        if (city.matches(".*“[0-9]”.*")) {
+        if (city.matches(".*[0-9].*")) {
             throw new InvalidCityException(city);
         }
     }
