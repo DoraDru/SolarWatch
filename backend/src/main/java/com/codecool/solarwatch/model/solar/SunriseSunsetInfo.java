@@ -40,4 +40,8 @@ public class SunriseSunsetInfo {
     public LocalTime getSunset() {
         return sunset;
     }
+
+    public City getCity() {
+        return city;
+    }
 }
