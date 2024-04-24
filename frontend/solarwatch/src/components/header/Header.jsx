@@ -3,9 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import "./Header.css"
+import { Outlet } from 'react-router-dom';
 
 function Header() {
   return (
+    <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="/">Solarwatch</Navbar.Brand>
@@ -18,6 +20,8 @@ function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <Outlet />
+    </>
   )
 }
 

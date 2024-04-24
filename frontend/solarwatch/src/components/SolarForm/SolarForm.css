@@ -1,0 +1,21 @@
+
+.formButton{
+  margin-top: 1rem;
+  background-color: #22668D;
+  border-color: #22668D;
+  color: #8ECDDD;
+}
+
+.formButton:hover{
+  background-color: #22668D;
+  color: #8ECDDD;
+  opacity: 90%;
+}
+
+.solarform{
+  background-color: #FFFADD;
+  width: 30%;
+  margin-top: 3rem;
+}
+
+

@@ -1,0 +1,6 @@
+.solar-container{
+  background-color: #FFFADD;
+  display: flex;
+  justify-content: center;
+  min-height: 60vh;
+}

@@ -1,13 +1,14 @@
 .jumbotron{
   background-color: #FFFADD;
+  min-height: 60vh;
 }
 
 .btn.btn-primary.btn-lg{
   background-color: #22668D;
   border-color: #22668D;
+  color: #8ECDDD;
 }
 
 .btn.btn-primary.btn-lg:hover{
-  background-color: #8ECDDD;
-  border-color: #8ECDDD,
+  opacity: 90%;
 }
