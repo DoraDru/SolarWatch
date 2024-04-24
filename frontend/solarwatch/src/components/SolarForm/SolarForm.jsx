@@ -1,7 +1,7 @@
-import { useState } from "react"
-import { Button, Form } from 'react-bootstrap'
+import { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
-import "./SolarForm.css"
+import './SolarForm.css';
 
 function SolarForm({ onSubmit }) {
   const [city, setCity] = useState(null);
@@ -12,10 +12,10 @@ function SolarForm({ onSubmit }) {
 
     const data = {
       city,
-      date
-    }
+      date,
+    };
 
-    onSubmit(data)
+    onSubmit(data);
   }
 
   return (
@@ -40,7 +40,7 @@ function SolarForm({ onSubmit }) {
         Submit
       </Button>
     </Form>
-  )
+  );
 }
 
-export default SolarForm
+export default SolarForm;
