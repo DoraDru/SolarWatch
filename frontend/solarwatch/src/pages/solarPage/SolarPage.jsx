@@ -37,6 +37,10 @@ function SolarPage() {
     }
   }
 
+  function back() {
+    setIsDisplay(false);
+  }
+
   return (
     <div className='solar-container'>
       <Alert className='alert' show={show} variant='danger'>
@@ -44,7 +48,7 @@ function SolarPage() {
       </Alert>
       {isDisplay ?
         solarInfo ?
-          <SolarInfo info={solarInfo} /> :
+          <SolarInfo info={solarInfo} goBack={back} /> :
           <div>load</div> :
         <SolarForm onSubmit={fetchSolarInfo} />}
 

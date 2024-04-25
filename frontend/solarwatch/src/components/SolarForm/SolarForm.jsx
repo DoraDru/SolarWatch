@@ -32,7 +32,7 @@ function SolarForm({ onSubmit }) {
       </Form.Group>
 
       <Form.Group controlId='formBasicDate'>
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Date</Form.Label>
         <Form.Control type='date'
           onChange={(e) => setDate(e.target.value)} />
       </Form.Group>

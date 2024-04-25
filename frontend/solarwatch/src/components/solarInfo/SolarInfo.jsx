@@ -1,9 +1,9 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 import './SolarInfo.css';
 
-function SolarInfo({ info }) {
+function SolarInfo({ info, goBack }) {
   return (
     <>
       <h1 className='cityName'>{info.city.name}</h1>
@@ -23,6 +23,7 @@ function SolarInfo({ info }) {
           </tr>
         </tbody>
       </Table>
+      <Button className='backButton' variant='primary' type='submit' onClick={goBack}>Back</Button>
     </>
   );
 }

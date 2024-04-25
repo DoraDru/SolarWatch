@@ -1,10 +1,24 @@
-.cityName{
+.cityName {
   margin: 1rem;
 }
 
-table.table-bordered > thead > tr > th{
-  border:1px solid #22668D;
+table.table-bordered>thead>tr>th {
+  border: 1px solid #22668D;
 }
-table.table-bordered > tbody > tr > td{
-  border:1px solid #22668D;
+
+table.table-bordered>tbody>tr>td {
+  border: 1px solid #22668D;
+}
+
+.backButton {
+  margin-top: 1rem;
+  background-color: #22668D;
+  border-color: #22668D;
+  color: #8ECDDD;
+}
+
+.backButton:hover {
+  background-color: #22668D;
+  color: #8ECDDD;
+  opacity: 90%;
 }
