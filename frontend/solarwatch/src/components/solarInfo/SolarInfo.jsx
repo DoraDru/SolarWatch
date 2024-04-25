@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SolarForm from '../SolarForm/SolarForm';
+import { Alert } from 'react-bootstrap';
 import './SolarInfo.css';
 
 async function fetchData(data) {
@@ -14,8 +15,10 @@ async function fetchData(data) {
 }
 
 function SolarInfo() {
-
   const [solarInfo, setSolarInfo] = useState();
+  const [isDisplay, setIsDisplay] = useState(false);
+  const [show, setShow] = useState(false);
+  const [alertMessage, setAlertMessage] = useState();
 
   async function fetchSolarInfo(data) {
     try {
@@ -24,15 +27,26 @@ function SolarInfo() {
       if (response.ok) {
         const result = await response.json();
         setSolarInfo(result);
-      } else if (response.status === 400) throw new Error('400, Bad request');
+        setShow(false);
+        setIsDisplay(true);
+      } else if (response.status === 400) throw new Error('Please provide a valid city name.');
     } catch (error) {
-      console.log(error);
+      setAlertMessage(error.message);
+      setShow(true);
     }
   }
 
   return (
-    <div className="solar-container">
-      <SolarForm onSubmit={fetchSolarInfo} />
+    <div className='solar-container'>
+      <Alert className='alert' show={show} variant='danger'>
+        {alertMessage}
+      </Alert>
+      {isDisplay ?
+        solarInfo ?
+          <div>{solarInfo.city.name}</div> :
+          <div>load</div> :
+        <SolarForm onSubmit={fetchSolarInfo} />}
+
     </div>
   );
 }
