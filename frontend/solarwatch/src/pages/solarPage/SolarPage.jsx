@@ -30,7 +30,10 @@ function SolarPage() {
         setSolarInfo(result);
         setShow(false);
         setIsDisplay(true);
-      } else if (response.status === 400) throw new Error('Please provide a valid city name.');
+      } else if (response.status === 400) {
+        const result = await response.text();
+        throw new Error(result);
+      }
     } catch (error) {
       setAlertMessage(error.message);
       setShow(true);

@@ -19,13 +19,14 @@ function SolarForm({ onSubmit }) {
   }
 
   return (
-    <Form className='solarform'>
+    <Form className='solarform' onSubmit={submit}>
       <Form.Group controlId='formBasicCity'>
         <Form.Label>City</Form.Label>
         <Form.Control
           type='text'
           placeholder='Type city'
           onChange={(e) => setCity(e.target.value)}
+          required
         />
         <Form.Text className='text-muted'>
         </Form.Text>
@@ -36,7 +37,7 @@ function SolarForm({ onSubmit }) {
         <Form.Control type='date'
           onChange={(e) => setDate(e.target.value)} />
       </Form.Group>
-      <Button className='formButton' variant='primary' type='submit' onClick={submit}>
+      <Button className='formButton' variant='primary' type='submit'>
         Submit
       </Button>
     </Form>
