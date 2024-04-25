@@ -4,7 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Header from './components/header/Header.jsx';
 import Home from './pages/home/Home.jsx';
-import SolarInfo from './pages/solarInfo/SolarInfo.js';
+import SolarPage from './pages/solarPage/SolarPage.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/solarwatch',
-        element: <SolarInfo />,
+        element: <SolarPage />,
       },
     ],
   },

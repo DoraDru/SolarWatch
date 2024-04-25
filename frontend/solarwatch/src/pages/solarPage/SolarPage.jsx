@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import SolarForm from '../../components/solarForm/SolarForm';
 import { Alert } from 'react-bootstrap';
-import './SolarInfo.css';
+import './SolarPage.css';
+import SolarInfo from '../../components/solarInfo/SolarInfo';
 
 async function fetchData(data) {
   let url = `/api/solarwatch?city=${data.city}`;
@@ -14,7 +15,7 @@ async function fetchData(data) {
   return response;
 }
 
-function SolarInfo() {
+function SolarPage() {
   const [solarInfo, setSolarInfo] = useState();
   const [isDisplay, setIsDisplay] = useState(false);
   const [show, setShow] = useState(false);
@@ -43,7 +44,7 @@ function SolarInfo() {
       </Alert>
       {isDisplay ?
         solarInfo ?
-          <div>{solarInfo.city.name}</div> :
+          <SolarInfo info={solarInfo} /> :
           <div>load</div> :
         <SolarForm onSubmit={fetchSolarInfo} />}
 
@@ -51,4 +52,4 @@ function SolarInfo() {
   );
 }
 
-export default SolarInfo;
+export default SolarPage;

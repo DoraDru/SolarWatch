@@ -1,0 +1,10 @@
+.cityName{
+  margin: 1rem;
+}
+
+table.table-bordered > thead > tr > th{
+  border:1px solid #22668D;
+}
+table.table-bordered > tbody > tr > td{
+  border:1px solid #22668D;
+}
