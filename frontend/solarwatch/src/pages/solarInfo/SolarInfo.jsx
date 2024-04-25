@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SolarForm from '../SolarForm/SolarForm';
+import SolarForm from '../../components/solarForm/SolarForm';
 import { Alert } from 'react-bootstrap';
 import './SolarInfo.css';
 
